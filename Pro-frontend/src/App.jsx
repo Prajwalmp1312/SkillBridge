@@ -1,0 +1,37 @@
+import React from 'react';
+// import { GiTechnoHeart } from "react-icons/gi";
+import Signup from '../pages/signup';
+
+const App = () => {
+  return (
+    <>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-900 via-indigo-900 to-gray-900">
+      <div className="bg-white/10 backdrop-blur rounded-xl shadow-lg p-8 flex flex-col items-center">
+        <div className="mb-4">
+          <svg width="48" height="48" fill="none" viewBox="0 0 24 24" className="mx-auto mb-2">
+            <rect width="24" height="24" rx="12" fill="#6366F1" />
+            <path d="M7 17V7h10v10H7zm2-2h6V9H9v6z" fill="#fff"/>
+          </svg>
+        </div>
+        <h1 className="text-4xl font-bold text-white mb-2">Welcome to SkillBridge</h1>
+        <p className="text-gray-300 text-lg mb-6 text-center max-w-md">
+          From nothing to everything<br />
+          Start building your learning journey!
+        </p>
+        <a
+          href="/signup"
+          className="px-4 py-2 bg-indigo-900 text-indigo-100 rounded-full text-sm font-mono mb-2 hover:bg-indigo-800 transition"
+        >
+          Go to Signup Page
+        </a>
+        <span className="text-xs text-gray-400">Empowering Students & Tutors</span>
+      </div>
+      <footer className="mt-10 text-gray-500 text-xs">
+        &copy; {new Date().getFullYear()} SkillBridge
+      </footer>
+    </div>
+    </>
+  );
+};
+
+export default App;
