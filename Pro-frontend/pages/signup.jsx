@@ -12,6 +12,8 @@ const Signup = () => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+  let navigate=useNavigate()
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -21,7 +23,7 @@ const Signup = () => {
     setLoading(true);
     setMessage("");
     try {
-      const res = await fetch("http://localhost:6000/api/V1/student/signup", {
+      const res = await axios.get("http://localhost:6000/api/V1/student/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -35,6 +37,7 @@ const Signup = () => {
           password: "",
           confirmPassword: "",
         });
+        navigate("/home")
       } else {
         setMessage(data.message || "Signup failed.");
       }
