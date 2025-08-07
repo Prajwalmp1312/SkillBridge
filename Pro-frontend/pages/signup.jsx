@@ -12,7 +12,7 @@ const Signup = () => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  let navigate=useNavigate()
+  let navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -23,11 +23,14 @@ const Signup = () => {
     setLoading(true);
     setMessage("");
     try {
-      const res = await axios.get("http://localhost:6000/api/V1/student/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+      const res = await axios.get(
+        "http://localhost:6000/api/V1/student/signup",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        }
+      );
       const data = await res.json();
       if (res.ok) {
         setMessage("Signup successful! You can now login.");
@@ -37,7 +40,7 @@ const Signup = () => {
           password: "",
           confirmPassword: "",
         });
-        navigate("/home")
+        navigate("/home");
       } else {
         setMessage(data.message || "Signup failed.");
       }
@@ -48,7 +51,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-indigo-900 to-gray-900">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-300 via-red-400 to-blue-400">
       <form
         onSubmit={handleSubmit}
         className="bg-white/10 backdrop-blur rounded-xl shadow-lg p-8 w-full max-w-md flex flex-col gap-4"
@@ -95,7 +98,7 @@ const Signup = () => {
         <button
           type="submit"
           disabled={loading}
-          className="bg-indigo-700 hover:bg-indigo-800 text-white font-semibold py-2 rounded transition"
+          className="bg-blue-700 hover:bg-indigo-800 text-white font-semibold py-2 rounded transition"
         >
           {loading ? "Signing up..." : "Sign Up"}
         </button>
@@ -104,6 +107,10 @@ const Signup = () => {
             {message}
           </div>
         )}
+        <h3 className="text-white text-center mt-2 text-sm">
+                    Don't have an account?{' '}
+                    <Link to="/signin" className="text-yellow-300 font-semibold hover:underline">Login</Link>
+                  </h3>
         <a
           href="/"
           className="text-xs text-indigo-200 hover:underline text-center mt-2"

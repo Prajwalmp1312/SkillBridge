@@ -3,13 +3,14 @@ import React from 'react';
 import { Routes, Route } from "react-router-dom"
 import Welcome from '../pages/Welcome';
 import Signup from '../pages/signup';
+import Signin from '../pages/Login';
 
 const App = () => {
   return (
     <Routes>
         <Route path="/" element={<Welcome/>}/>
         <Route path="/signup" element={<Signup/>}/>
-        {/* <Route path="/signin" element={<Signin/>}/> */}
+        <Route path="/signin" element={<Signin/>}/>
         {/* <Route path="/dashboard" element={<Dashboard/>}/> */}
       </Routes>
   )
