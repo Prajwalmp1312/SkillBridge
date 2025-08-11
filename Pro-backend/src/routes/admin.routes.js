@@ -7,8 +7,8 @@ let router=express.Router()
 
 
 //signup
-router.post("/signup",signup)
-router.post("/signin",signin)
+router.post("/signup/admin",signup)
+router.post("/signin/admin",signin)
 
 
 export default router

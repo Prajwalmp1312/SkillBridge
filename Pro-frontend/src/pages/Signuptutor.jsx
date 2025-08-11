@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
-const Signup = () => {
+const Signuptutor = () => {
   const [form, setForm] = useState({
-    studentName: "",
+    TutorName: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
+  
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -23,8 +24,8 @@ const Signup = () => {
     setLoading(true);
     setMessage("");
     try {
-      const res = await axios.get(
-        "http://localhost:6000/api/V1/student/signup",
+      const res = await axios.post(
+        "http://localhost:6000/api/V1/tutor/signup",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -40,7 +41,7 @@ const Signup = () => {
           password: "",
           confirmPassword: "",
         });
-        navigate("/home");
+        navigate("/home/tutor");
       } else {
         setMessage(data.message || "Signup failed.");
       }
@@ -57,7 +58,7 @@ const Signup = () => {
         className="bg-white/10 backdrop-blur rounded-xl shadow-lg p-8 w-full max-w-md flex flex-col gap-4"
       >
         <h2 className="text-3xl font-bold text-white mb-2 text-center">
-          Student Signup
+          Tutor Signup
         </h2>
         <input
           type="text"
@@ -109,17 +110,17 @@ const Signup = () => {
         )}
         <h3 className="text-white text-center mt-2 text-sm">
                     Don't have an account?{' '}
-                    <Link to="/signin" className="text-yellow-300 font-semibold hover:underline">Login</Link>
+                    <Link to="/login/tutor" className="text-yellow-300 font-semibold hover:underline">Login</Link>
                   </h3>
         <a
           href="/"
           className="text-xs text-indigo-200 hover:underline text-center mt-2"
         >
-          Back to Home
+          Back to Welcome Page
         </a>
       </form>
     </div>
   );
 };
 
-export default Signup;
+export default Signuptutor;

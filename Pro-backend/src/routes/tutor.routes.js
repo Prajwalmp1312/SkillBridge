@@ -6,10 +6,10 @@ import { signin, signup } from '../controllers/tutor.controllers.js';
 let router=express.Router()
 
 
-router.post("/signup", signup);
+router.post("/signup/tutor", signup);
 
 
-router.post("/signin",signin );
+router.post("/signin/tutor",signin );
 
 export default router
 
